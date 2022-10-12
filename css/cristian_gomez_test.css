@@ -1,0 +1,104 @@
+/* My name is cristian gomez, I will leave a short description for every solution I've done, hope you everyone like it 
+
+////////////////////// Exercise 1 //////////////////////
+/* Here I change the width and the background position to the center for mobiles devices*/
+
+.hero-image {
+    width: 100% !important;
+    background-position: center;
+}
+
+
+/* replacing the image of the new section "final-frontier, for every media query just like luna does*/
+
+.hero-unit-moon-exploration:nth-child(1) .hero-image {
+    background-image: url(/images/final-frontier_large.jpg);
+}
+
+@media only screen and (max-width: 735px) {
+    .hero-unit-moon-exploration:nth-child(1) .hero-image {
+        background-image: url(/images/final-frontier_small.jpg);
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .hero-unit-moon-exploration:nth-child(1) .hero-image {
+        background-image: url(/images/final-frontier_medium.jpg);
+    }
+}
+
+
+/* setting width in order to perform a float, this could be done using flex-box, by adding a parent */
+
+@media only screen and (min-width:992px) {
+    .hero {
+        width: 50% !important;
+    }
+    .hero:nth-child(1) {
+        float: left;
+    }
+    .hero:last-child() {
+        float: right;
+    }
+}
+
+
+/*//////////////////// Exercise 2 ////////////////////*/
+
+
+/* the timeline was setup in two groups, separated in diferent parents. my solution was to put together every card under one parent and make them float */
+
+.timeline__size-card>div {
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .col-lg-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    .timeline__size-card>div {
+        width: 48.6%;
+    }
+}
+
+.timeline__size-card>div:nth-child(odd) {
+    float: left;
+}
+
+.timeline__size-card>div:nth-child(even) {
+    float: right;
+}
+
+
+/*//////////////////// Exercise 3 ////////////////////*/
+
+
+/* after i've removed every grid class of the index.html (.gallery-grid is replaced by .gallery__older-browsers ) // pd: I'm aware that nth child is not supported by very old browsers, and it would perform better with normal classes */
+
+@media only screen and (min-width: 736px) {
+    .gallery__older-browsers>div:nth-child(3) {
+        float: left;
+        width: 66.7%
+    }
+    .gallery__older-browsers>div:nth-child(4) {
+        float: left;
+        width: 33.3%
+    }
+    .gallery__older-browsers>div:nth-child(7) {
+        float: left;
+        width: 49.5%
+    }
+    .gallery__older-browsers>div:nth-child(8) {
+        float: left;
+        width: 50.5%;
+    }
+    .gallery__older-browsers>div:nth-child(4n+1) {
+        float: left;
+        width: 33.3%
+    }
+    .gallery__older-browsers>div:nth-child(4n-2) {
+        float: right;
+        width: 66.7%
+    }
+}
